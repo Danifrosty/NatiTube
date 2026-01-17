@@ -1,0 +1,25 @@
+Why the Architecture is Evolving
+
+The project is transitioning from a standard injection script to a Hybrid Web App (PWA) model. This shift addresses three critical limitations of the previous implementation:
+
+1. Bypassing DOM Volatility
+
+YouTube's mobile web interface undergoes frequent obfuscation and DOM tree updates. Scripts that rely on modifying existing elements are prone to breaking when class names or element hierarchies change. By moving to a Wrapper Architecture, NatiTube creates a stable environment where the UI remains constant, regardless of the provider's internal code changes.
+
+2. Native System Priority
+
+Standard web players are often restricted by the browser's sandbox, limiting access to native OS features. Our new architecture treats the Native Viewer as the primary output. This ensures that the operating system recognizes the media stream as a first-class citizen, enabling:
+
+Consistent hardware-accelerated Picture-in-Picture.
+
+System-level media notification controls.
+
+Enhanced battery efficiency through native rendering paths.
+
+3. Overcoming Security Sandbox Restrictions
+
+As browser security policies (such as CORS and CSP) become stricter, injecting complex logic into an external domain becomes increasingly unreliable. The Web App approach reverses the relationship: NatiTube now hosts the environment and "invites" the content, allowing for superior control over the playback lifecycle and better mitigation of cross-origin blocks.
+
+4. User Experience Independence
+
+The previous version was tethered to the mobile site's layout. The evolution into a Web App allows for a custom-designed interface (NatiTube UI) that can remove unwanted elements—such as algorithmic distractions and bloated scripts—while retaining the core functionality of the original engine.
