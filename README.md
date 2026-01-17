@@ -7,7 +7,7 @@ NatiTube is a lightweight project designed to replace the standard YouTube web p
 ### Android
 The stable script for Android devices can be found in the root or the designated script file.
 - **File:** android-version.js
-- **Compatible with:** InjecThor, Kiwi Browser, and Orion.
+- **Compatible with:** InjecThor, Kiwi Browser, and Tampermonkey.
 - **Target:** m.youtube.com
 
 ### iOS
