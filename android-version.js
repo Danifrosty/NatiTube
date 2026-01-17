@@ -1,25 +1,66 @@
+
+
+
+//PLS READ ME
+
+//THIS VERSION IS CORRUOTED PLS WAIT THE NEW VERSION
+
+
+
+
+
+
+
 // ==UserScript==
-// @name         NatiTube Android - Native PiP & Player
+// @name         NatiTube Android - Ultra PiP & Space Mode
 // @namespace    http://tampermonkey.net/
-// @version      2.0
-// @description  Force native Picture-in-Picture and enhance the mobile YouTube experience.
+// @version      3.5
+// @description  Sends YouTube's UI to space and forces native PiP for maximum performance.
 // @author       3lprox
 // @match        https://m.youtube.com/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=youtube.com
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
 
+    // --- SPACE MODE: UI ANNIHILATION ---
+    // This removes everything except the video container to save RAM and Battery.
+    const sendToSpace = () => {
+        const junkSelectors = [
+            '#comments', 
+            '#related', 
+            'ytm-item-section-renderer', 
+            'ytm-rich-section-renderer', 
+            '.ad-slot-renderer',
+            'ytm-promoted-sparkles-web-renderer',
+            'ytm-mweb-player-miniplayer-renderer',
+            'ytm-pivot-bar-renderer', // Bottom bar
+            '#masthead-container'      // Header
+        ];
+        
+        junkSelectors.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(el => el.remove());
+        });
+
+        // Expand the video player to fill the space
+        const player = document.querySelector('#player-container-id');
+        if (player) {
+            player.style.position = 'fixed';
+            player.style.top = '0';
+            player.style.zIndex = '9999';
+            player.style.width = '100vw';
+        }
+    };
+
+    // Run the annihilator continuously
+    setInterval(sendToSpace, 500);
+
     // --- CORE LOGIC: NATIVE PiP ---
     async function activateNativePiP() {
         const video = document.querySelector('video');
-        
-        if (!video) {
-            console.log("NatiTube: No video found.");
-            return;
-        }
+        if (!video) return;
 
         try {
             if (document.pictureInPictureEnabled && !video.disablePictureInPicture) {
@@ -34,63 +75,35 @@
         }
     }
 
-    // --- UI: FLOATING BUTTON ---
+    // --- UI: THE LAUNCH BUTTON ---
     const pipBtn = document.createElement('button');
-    pipBtn.textContent = 'PiP'; // Text instead of emoji for GitHub standards
+    pipBtn.textContent = 'LAUNCH';
     pipBtn.setAttribute('style', `
         position: fixed;
-        bottom: 100px;
+        bottom: 30px;
         right: 20px;
-        z-index: 999999;
-        width: 50px;
-        height: 50px;
-        background-color: #FF0000;
+        z-index: 1000000;
+        width: 70px;
+        height: 70px;
+        background: radial-gradient(circle, #ff0000 0%, #990000 100%);
         color: white;
-        border: none;
+        border: 2px solid #ffffff;
         border-radius: 50%;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        font-size: 14px;
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+        font-size: 12px;
         font-weight: bold;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        -webkit-tap-highlight-color: transparent;
+        text-transform: uppercase;
     `);
 
     pipBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        e.stopPropagation();
         activateNativePiP();
     });
 
     document.body.appendChild(pipBtn);
-
-    // ========================================================
-    // NATITUBE PLUGINS AREA
-    // ========================================================
-
-    // [Plugin 1] Background Play Enabler
-    Object.defineProperty(document, 'visibilityState', { get: () => 'visible', configurable: true });
-    Object.defineProperty(document, 'hidden', { get: () => false, configurable: true });
-    window.addEventListener('visibilitychange', (e) => { e.stopImmediatePropagation(); }, true);
-
-    // [Plugin 2] Auto-Lite Mode
-    const cleanNatiUI = () => {
-        const selectors = ['#comments', '#related', 'ytm-item-section-renderer[section-identifier="comment-item-section"]'];
-        selectors.forEach(s => {
-            const el = document.querySelector(s);
-            if (el) el.style.display = 'none';
-        });
-    };
-    setInterval(cleanNatiUI, 1000);
-
-    // ========================================================
-    // USER PLUGINS AREA (Paste your custom snippets below)
-    // ========================================================
-    
-    /* [YOUR CODE HERE] */
-
-    // ========================================================
 
 })();
