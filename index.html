@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NatiTube — Native Player Experience</title>
+    <title>NatiTube — Official Documentation</title>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,7 +15,8 @@
             --md-on-surface-variant: #43474e;
             --md-secondary-container: #d1e4ff;
             --md-on-secondary-container: #001d36;
-            --md-outline: #73777f;
+            --md-tertiary-container: #fad8fd;
+            --md-on-tertiary-container: #28132e;
         }
 
         body {
@@ -23,11 +24,17 @@
             font-family: 'Roboto', sans-serif;
             background-color: var(--md-surface);
             color: var(--md-on-surface);
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
         }
 
-        .header {
-            padding: 80px 24px 56px;
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            padding: 80px 24px;
             text-align: center;
         }
 
@@ -37,162 +44,211 @@
             font-weight: 400;
             margin: 0;
             color: var(--md-primary);
-            letter-spacing: -0.5px;
         }
 
-        .tagline {
-            font-size: 1.25rem;
-            margin-top: 16px;
-            color: var(--md-on-surface-variant);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 24px;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 64px;
-        }
-
-        .feature-card {
-            background-color: var(--md-secondary-container);
-            color: var(--md-on-secondary-container);
-            padding: 32px;
-            border-radius: 28px;
-        }
-
-        .feature-card h3 {
-            margin: 0 0 12px 0;
-            font-family: 'Google Sans', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 500;
-        }
-
-        .feature-card p {
-            margin: 0;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .content-section {
-            background-color: var(--md-surface-variant);
-            border-radius: 28px;
-            padding: 48px;
-            margin-top: 24px;
-        }
-
-        .content-section h2 {
+        h2 {
             font-family: 'Google Sans', sans-serif;
             font-size: 2rem;
-            margin-top: 0;
-            margin-bottom: 24px;
+            margin-top: 56px;
+            border-bottom: 1px solid var(--md-surface-variant);
+            padding-bottom: 12px;
             color: var(--md-on-surface);
         }
 
-        .platform-info {
-            margin-bottom: 40px;
-        }
-
-        .platform-info h4 {
-            margin: 0 0 8px 0;
-            font-size: 1.2rem;
+        h3 {
             font-family: 'Google Sans', sans-serif;
             color: var(--md-primary);
+            margin-top: 32px;
+            font-weight: 500;
         }
 
-        .platform-info p {
-            margin: 0;
-            color: var(--md-on-surface-variant);
-            line-height: 1.5;
+        .info-card {
+            background-color: var(--md-surface-variant);
+            border-radius: 28px;
+            padding: 32px;
+            margin: 24px 0;
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .feature-item {
+            background-color: var(--md-secondary-container);
+            color: var(--md-on-secondary-container);
+            padding: 28px;
+            border-radius: 24px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            background: var(--md-surface-variant);
+            border-radius: 24px;
+            overflow: hidden;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .comparison-table th {
             background-color: var(--md-primary);
             color: var(--md-on-primary);
-            padding: 14px 32px;
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        code {
+            font-family: monospace;
+            background: rgba(0,0,0,0.08);
+            padding: 3px 6px;
+            border-radius: 6px;
+        }
+
+        .warning-box {
+            background-color: var(--md-tertiary-container);
+            color: var(--md-on-tertiary-container);
+            padding: 24px;
+            border-radius: 24px;
+            margin: 40px 0;
+        }
+
+        .btn-github {
+            display: inline-flex;
+            background-color: var(--md-primary);
+            color: var(--md-on-primary);
+            padding: 16px 32px;
             border-radius: 100px;
             text-decoration: none;
             font-family: 'Google Sans', sans-serif;
             font-weight: 500;
-            margin-top: 32px;
-            transition: opacity 0.2s;
+            margin-top: 24px;
+            transition: transform 0.2s;
         }
 
-        .btn:hover {
-            opacity: 0.9;
+        .btn-github:hover {
+            transform: translateY(-2px);
         }
 
         footer {
             text-align: center;
             padding: 80px 24px;
-            font-size: 0.9rem;
-            color: var(--md-on-surface-variant);
+            opacity: 0.7;
             border-top: 1px solid var(--md-surface-variant);
-        }
-
-        code {
-            font-family: monospace;
-            background: rgba(0,0,0,0.06);
-            padding: 2px 6px;
-            border-radius: 4px;
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
+<div class="container">
+    <header>
         <h1>NatiTube</h1>
-        <p class="tagline">Native player integration for the YouTube mobile web.</p>
-        <a href="https://github.com/3lprox/NatiTube" class="btn">Get Started on GitHub</a>
+        <p class="tagline">Technical documentation and implementation guide for the native player experience.</p>
+        <a href="https://github.com/3lprox/NatiTube" class="btn-github">View Repository</a>
     </header>
 
-    <div class="container">
-        <div class="features">
-            <div class="feature-card">
-                <h3>Native Controls</h3>
-                <p>Leverage your system's default volume, brightness, and playback gestures seamlessly.</p>
+    <section id="about">
+        <h2>Overview</h2>
+        <p>NatiTube is a code-injection project designed to bypass the limitations of the YouTube mobile web player. It isolates the HTML5 video stream and delivers it directly to the operating system's native media controller (AVPlayer for iOS and MediaPlayer for Android).</p>
+        
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>True Multitasking</h3>
+                <p>By using the native system player, Picture-in-Picture mode integrates perfectly with your mobile OS window manager, allowing you to use other apps without playback interruption.</p>
             </div>
-            <div class="feature-card">
-                <h3>Picture-in-Picture</h3>
-                <p>Enable true OS-level floating windows for multitasking without app-imposed limits.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Minimalist Design</h3>
-                <p>Bypass proprietary web overlays for a cleaner, faster, and more responsive viewing experience.</p>
+            <div class="feature-item">
+                <h3>System Integration</h3>
+                <p>Native controls provide access to system-level gestures for volume, brightness, and AirPlay/Cast features that are often restricted in web browsers.</p>
             </div>
         </div>
+    </section>
 
-        <section class="content-section">
-            <h2>Implementation</h2>
-            
-            <div class="platform-info">
-                <h4>Android Integration</h4>
-                <p>Utilize the <code>android-version.js</code> script with mobile injectors like InjecThor or Kiwi. It targets the mobile web DOM to isolate the video stream into the system controller.</p>
-            </div>
+    <section id="technical">
+        <h2>How It Works</h2>
+        <p>The core logic utilizes a DOM observation loop that monitors <code>m.youtube.com</code> for the <code>&lt;video&gt;</code> element. Once active, the script performs three critical operations:</p>
+        <ul>
+            <li><strong>DOM Re-parenting:</strong> Moves the video element to the top of the document hierarchy to prevent YouTube's scripts from overriding its state.</li>
+            <li><strong>Control Enforcement:</strong> Triggers the <code>controls = true</code> attribute, forcing the browser to render the native OS UI instead of the custom YouTube overlay.</li>
+            <li><strong>CSS Dominance:</strong> Applies high-priority styling to ensure the player maintains the correct aspect ratio and visibility above all other web elements.</li>
+        </ul>
 
-            <div class="platform-info">
-                <h4>iOS Solution</h4>
-                <p>Access the dedicated Apple Shortcut via <code>iOS-url</code>. It allows for direct Safari integration through the native share sheet, triggering the iOS media controller.</p>
-            </div>
+        <h3>Performance Comparison</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Standard Web Player</th>
+                    <th>NatiTube</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Picture-in-Picture</td>
+                    <td>Restricted / Premium only</td>
+                    <td>Native Support</td>
+                </tr>
+                <tr>
+                    <td>System Gestures</td>
+                    <td>Not Available</td>
+                    <td>Fully Supported</td>
+                </tr>
+                <tr>
+                    <td>Background Playback</td>
+                    <td>Blocked by Web Interface</td>
+                    <td>OS Controlled</td>
+                </tr>
+                <tr>
+                    <td>Interface Overhead</td>
+                    <td>High (Heavy JS/DOM)</td>
+                    <td>Minimal (Native)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-            <div class="platform-info">
-                <h4>Experimental Channel</h4>
-                <p>The <code>beta-version</code> directory contains early-access builds with experimental layout adjustments and advanced DOM manipulation techniques.</p>
-            </div>
-        </section>
-    </div>
+    <section id="installation">
+        <h2>Installation Guide</h2>
+        
+        <div class="info-card">
+            <h3>Android Setup</h3>
+            <p>1. Install a UserScript manager (Kiwi Browser, Orion, or InjecThor).</p>
+            <p>2. Load the <code>android-version.js</code> script from the repository.</p>
+            <p>3. Ensure the target URL is set to <code>*://m.youtube.com/*</code>.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>iOS Setup</h3>
+            <p>1. Access the official Shortcut link via the <code>iOS-url</code> file.</p>
+            <p>2. Enable "Allow Untrusted Shortcuts" in your device settings if required.</p>
+            <p>3. Execute the shortcut from the Safari Share Sheet while on a YouTube page.</p>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <h3>Why is the video quality low?</h3>
+        <p>YouTube uses adaptive bitrate streaming (DASH). When switching to the native player, the browser may default to a lower resolution stream. It is recommended to manually select your desired quality in the YouTube settings before activating the script.</p>
+        
+        <h3>Does it work with the YouTube App?</h3>
+        <p>No. NatiTube is a web-based injection tool designed specifically for mobile browsers. It relies on the browser's ability to render native HTML5 video controls.</p>
+
+        <div class="warning-box">
+            <strong>Privacy Note:</strong> NatiTube does not collect data, connect to external servers, or track your history. The code is 100% open-source and executes locally on your hardware.
+        </div>
+    </section>
 
     <footer>
-        <p>NatiTube is an open-source project hosted on GitHub.<br>Designed to return media control to the user.</p>
+        <p>NatiTube Project — 2026<br>Released under the MIT License.</p>
     </footer>
+</div>
 
 </body>
 </html>
