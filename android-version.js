@@ -59,11 +59,29 @@
     setInterval(cleanNatiUI, 1500);
 
     // ========================================================
-    // USER PLUGINS AREA (Paste your custom snippets below)
-    // ========================================================
-    
-    /* [YOUR CODE HERE] */
+// NATITUBE PLUGINS AREA
+// Feel free to add or remove snippets below.
+// ========================================================
 
-    // ========================================================
+// [Plugin 1] Background Play Enabler
+// Keeps audio playing when switching tabs or locking the screen.
+Object.defineProperty(document, 'visibilityState', { get: () => 'visible', configurable: true });
+Object.defineProperty(document, 'hidden', { get: () => false, configurable: true });
+window.addEventListener('visibilitychange', (e) => { e.stopImmediatePropagation(); }, true);
+
+// [Plugin 2] Auto-Lite Mode
+// Removes heavy UI elements like comments and related grids for faster loading.
+const cleanNatiUI = () => {
+    const selectors = ['#comments', '#related', 'ytm-item-section-renderer[section-identifier="comment-item-section"]'];
+    selectors.forEach(s => {
+        const el = document.querySelector(s);
+        if (el) el.style.display = 'none';
+    });
+};
+setInterval(cleanNatiUI, 1000);
+
+// ========================================================
+// END OF PLUGINS
+// ========================================================
 
 })();
